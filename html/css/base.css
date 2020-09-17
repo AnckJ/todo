@@ -108,3 +108,30 @@ button + button {
   margin-left: -300px;
   margin-top: -225px;
 }
+
+.link {
+  float: right;
+  color: #409eff;
+  text-decoration: none;
+}
+
+.form {
+  padding: 42px 20px;
+}
+
+.form-item {
+  margin-bottom: 26px;
+  text-align: center;
+}
+
+.form-item input {
+  width: calc(100% - 56px);
+  height: 40px;
+  line-height: 40px;
+  background-color: transparent;
+}
+
+.form-item__label {
+  display: inline-block;
+  width: 52px;
+}

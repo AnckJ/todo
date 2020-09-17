@@ -1,11 +1,15 @@
 import Todo from '../model/todo'
 import { ApiError } from '../error/apiError'
+import jwt from 'jsonwebtoken'
 
 class TodoController {
   async list (ctx) {
     let { size = 10, page, ...searchParams = {} } = ctx.request.body
     page = Number(page)
     size = Number(size)
+    const token = ctx.header.authorization.replace('Bearer ', '')
+    const user = jwt.verify(token, 'testapi')
+    searchParams = { ...searchParams, uid: user._id }
     if (page) {
       const total = await Todo.countDocuments(searchParams)
       const maxPage = Math.ceil(total / size) || 1
@@ -29,7 +33,10 @@ class TodoController {
   }
 
   async insert (ctx) {
-    const params = ctx.request.body
+    let params = ctx.request.body
+    const token = ctx.header.authorization.replace('Bearer ', '')
+    const user = jwt.verify(token, 'testapi')
+    params = { ...params, uid: user._id }
     await new Todo(params).save()
     const data = await Todo.findOne(params)
     ctx.body = {

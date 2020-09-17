@@ -23,9 +23,9 @@ class UserController {
 
   async register (ctx) {
     const params = ctx.request.body
-    const { name } = params
+    const { username } = params
 
-    const repeatedUser = await User.findOne({ name })
+    const repeatedUser = await User.findOne({ username })
     if (repeatedUser) {
       throw new ApiError('userExists')
     }
@@ -61,7 +61,6 @@ class UserController {
   async update (ctx) {
     const params = ctx.request.params
     const result = await userModel.updateOne({ _id: params._id }, { $set: params })
-    console.log(result)
     ctx.body = result
   }
 }

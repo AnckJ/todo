@@ -1,4 +1,4 @@
-const baseURL = 'http://127.0.0.1:3000/api/todo'
+const baseURL = 'http://127.0.0.1:3000/api'
 const list = document.querySelector('.list')
 const checkedList = []
 const size = 5
@@ -6,6 +6,7 @@ let page = 1
 let total = 0
 let queryParams = null
 
+getUserinfo()
 getList()
 
 /**
@@ -15,12 +16,13 @@ function getList (params = {}) {
   queryParams = params
   ajax({
     method: 'post',
-    url: baseURL + '/list',
+    url: baseURL + '/todo/list',
     body: { page, size, ...params }
   }).then(res => {
     list.innerHTML = ''
     if (res.error) {
-      alert(res.error)
+      alert(res.error.value)
+      location.href = '/login.html'
       return
     }
     total = res.total
@@ -103,5 +105,27 @@ function getCheckedItem (id) {
 const quitButton = document.querySelector('.quit-button')
 quitButton.addEventListener('click', function () {
   localStorage.removeItem('todo-key')
+  localStorage.removeItem('todo-user')
   location.href = '/login.html'
 })
+
+function getUserinfo () {
+  let user
+  try {
+    user = JSON.parse(localStorage.getItem('todo-user'))
+  } catch (e) {
+    console.log(e)
+    location.href = '/login.html'
+  }
+  if (!user || !user._id) {
+    location.href = '/login.html'
+    return
+  }
+  const userAvatar = user.avatar ? user.avatar : './images/bg.jpg'
+  const userinfoHTML = `
+    <img src="${userAvatar}" alt="头像" class="userinfo-avatar">
+    <span class="userinfo-name">${user.username}</span>
+    <button class="button__primary quit-button">退出</button>
+  `
+  document.querySelector('.userinfo').innerHTML = userinfoHTML
+}

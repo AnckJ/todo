@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="./css/base.css">
+  <link rel="stylesheet" href="./css/login.css">
+  <script src="./js/ajax.js"></script>
+</head>
+<body>
+  <div class="cover"></div>
+  <div class="container register-container">
+    <h1 class="login-title">欢迎注册</h1>
+    <div class="form register-form">
+      <div class="form-item">
+        <span class="form-item__label">
+          <span class="required">*</span>
+          用户名
+        </span>
+        <input class="input" type="text" name="username" placeholder="请输入用户名"/>
+      </div>
+      <div class="form-item">
+        <span class="form-item__label">
+          <span class="required">*</span>
+          密　码
+        </span>
+        <input class="input" type="password" name="password" placeholder="请输入密码" />
+      </div>
+      <div class="form-item">
+        <span class="form-item__label">
+          <span class="required">*</span>邮　箱
+        </span>
+        <input class="input" type="text" name="email" placeholder="请输入邮箱" />
+      </div>
+      <div class="form-item">
+        <button class="button__primary register-button">注 册</button>
+      </div>
+      <div class="links">
+        <a href="/login.html" class="link">返回登录</a>
+      </div>
+    </div>
+  </div>
+  <script src="./js/register.js"></script>
+</body>
+</html>

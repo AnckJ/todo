@@ -1,9 +1,10 @@
 const baseURL = 'http://127.0.0.1:3000/api'
 const loginButton = document.querySelector('.login-button')
 
-loginButton.addEventListener('click', function (e) {
-  const username = document.querySelector('input[name=username]').value
-  const password = document.querySelector('input[name=password]').value
+loginButton.addEventListener('click', function () {
+  const loginForm = document.querySelector('.login-form')
+  const username = loginForm.querySelector('input[name=username]').value
+  const password = loginForm.querySelector('input[name=password]').value
   ajax({
     method: 'post',
     url: baseURL + '/login',
@@ -14,7 +15,9 @@ loginButton.addEventListener('click', function (e) {
       return
     }
     const token = res.data.token
+    const user = res.data.user
     localStorage.setItem('todo-key', token)
+    localStorage.setItem('todo-user', JSON.stringify(user))
     location.href = '/index.html'
   })
 })

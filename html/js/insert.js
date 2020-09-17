@@ -9,7 +9,7 @@
     }
     ajax({
       method: 'post',
-      url: baseURL + '/insert',
+      url: baseURL + '/todo/insert',
       body: { name: e.target.value }
     }).then(res => {
       if (res.error) {

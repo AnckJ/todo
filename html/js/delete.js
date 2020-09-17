@@ -9,7 +9,7 @@
     }
     ajax({
       method: 'delete',
-      url: baseURL + '/delete',
+      url: baseURL + '/todo/delete',
       body: { ids: checkedList }
     }).then(res => {
       if (res.error) {

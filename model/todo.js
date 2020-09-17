@@ -7,6 +7,10 @@ const TodoSchema = new mongoose.Schema({
     unique: true,
     required: true
   },
+  uid: {
+    type: mongoose.SchemaTypes.ObjectId,
+    required: true
+  },
   status: {
     type: 'string',
     enum: ['unfinished', 'completed'],

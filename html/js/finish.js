@@ -8,7 +8,7 @@
     }
     ajax({
       method: 'put',
-      url: baseURL + '/update',
+      url: baseURL + '/todo/update',
       body: { ids: checkedList, data: { status: 'completed' } }
     }).then(res => {
       if (res.error) {
