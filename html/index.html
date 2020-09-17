@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>todo</title>
+  <link rel="stylesheet" href="./css/base.css">
+  <link rel="stylesheet" href="./css/index.css">
+  <script src="./js/ajax.js"></script>
+</head>
+<body>
+  <div class="cover"></div>
+  <div class="container">
+    <div class="userinfo">
+      <img src="./images/bg.jpg" alt="头像" class="userinfo-avatar">
+      <span class="userinfo-name">admin</span>
+      <button class="button__primary quit-button">退出</button>
+    </div>
+
+    <div>
+      <input type="text" value="" class="input add-input" placeholder="添加想要完成的内容" />
+    </div>
+
+    <div class="tabs">
+      <div class="tab is-active" data-name="all">全部</div>
+      <div class="tab" data-name="unfinished">未完成</div>
+      <div class="tab" data-name="completed">已完成</div>
+    </div>
+
+    <ul class="list">
+    </ul>
+
+    <div class="footer">
+      <ul class="pagination">
+      </ul>
+
+      <div class="button-list">
+        <button class="button__primary finish-button">完成</button>
+        <button class="button__delete delete-button">删除</button>
+      </div>
+    </div>
+  </div>
+</body>
+
+<script src="./js/pagination.js"></script>
+<script src="./js/list.js"></script>
+<script src="./js/tabs.js"></script>
+<script src="./js/insert.js"></script>
+<script src="./js/finish.js"></script>
+<script src="./js/delete.js"></script>
+<script src="./js/update.js"></script>
+</html>
