@@ -8,6 +8,8 @@ router.get('/user/read', auth, userController.read)
 
 router.get('/user/list', auth, userController.list)
 
+router.post('/user/uploadAvatar', auth, userController.uploadAvatar)
+
 router.put('/user/update', auth, userController.update)
 
 router.post('/register', userController.register)

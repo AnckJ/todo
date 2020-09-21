@@ -1,7 +1,7 @@
 /**
  * tabs 功能
  */
-(function () {
+define(['js/list'], function (list) {
   const tabs = document.querySelector('.tabs')
   tabs.addEventListener('click', function (e) {
     const name = e.target.dataset.name
@@ -16,11 +16,10 @@
 
 
   function switchTab (name) {
-    page = 1
     if (name === 'all') {
-      getList()
+      list.getList({}, 1)
       return
     }
-    getList({ status: name })
+    list.getList({ status: name }, 1)
   }
-})()
+})

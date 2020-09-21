@@ -41,6 +41,7 @@ button {
   -webkit-user-select: none;
   -ms-user-select: none;
   font-size: 12px;
+  border: 1px solid #dcdfe6;
   border-radius: 3px;
 }
 
@@ -68,6 +69,20 @@ button + button {
   border: 1px solid #f78989;
 }
 
+.button__plain {
+  background-color: #fff;
+  color: #606266;
+}
+
+.button__plain:hover {
+  border-color: #66b1ff;
+  color: #66b1ff;
+}
+
+.required {
+  color: #f78989;
+}
+
 .input {
   display: inline-block;
   padding: 0 15px;
@@ -81,7 +96,7 @@ button + button {
   color: #606266;
   font-size: inherit;
   outline: none;
-  transition: border-color .2s cubic-bezier(.645,.045,.355,1);
+  transition: border-color .2s cubic-bezier(.645, .045, .355, 1);
 }
 
 .cover {
@@ -121,7 +136,6 @@ button + button {
 
 .form-item {
   margin-bottom: 26px;
-  text-align: center;
 }
 
 .form-item input {
@@ -131,7 +145,36 @@ button + button {
   background-color: transparent;
 }
 
+.form-item textarea {
+  width: calc(100% - 56px);
+  padding: 0 15px;
+  line-height: 40px;
+  vertical-align: middle;
+  -webkit-appearance: none;
+  background-color: #fff;
+  background-image: none;
+  border-radius: 4px;
+  border: 1px solid #dcdfe6;
+  box-sizing: border-box;
+  color: #606266;
+  font-size: inherit;
+  outline: none;
+  transition: border-color .2s cubic-bezier(.645, .045, .355, 1);
+}
+
 .form-item__label {
   display: inline-block;
   width: 52px;
+  text-align: center;
+}
+
+.form-item__avatar {
+  width: 80px;
+  height: 80px;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+.upload-input {
+  display: none;
 }

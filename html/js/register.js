@@ -1,5 +1,4 @@
-(function () {
-  const baseURL = 'http://127.0.0.1:3000/api'
+require(['js/baseUrl', 'js/ajax'], function (baseURL, ajax) {
   const registerButton = document.querySelector('.register-button')
 
   registerButton.addEventListener('click', function () {
@@ -11,9 +10,24 @@
       params[input.name] = input.value
     })
 
+    if (!params.username) {
+      alert('用户名必填！')
+      return
+    }
+
+    if (!params.password) {
+      alert('密码必填！')
+      return
+    }
+
+    if (!params.email) {
+      alert('邮箱必填！')
+      return
+    }
+
     ajax({
       method: 'post',
-      url: baseURL + '/register',
+      url: baseURL + '/api/register',
       body: params
     }).then(res => {
       if (res.error) {
@@ -24,4 +38,4 @@
       location.href = '/login.html'
     })
   })
-})()
+})

@@ -1,0 +1,72 @@
+.dialog__wrapper {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: auto;
+  margin: 0;
+  z-index: 2;
+}
+
+.dialog__modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: .5;
+  background: #000;
+  z-index: 1;
+}
+
+.dialog {
+  margin: 5vh auto 0;
+  width: 80vw;
+  background-color: #fff;
+  border-radius: 2px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, .3);
+}
+
+.dialog-header {
+  position: relative;
+  padding: 20px 20px 10px;
+}
+
+.dialog-header__title {
+  line-height: 24px;
+  font-size: 18px;
+  color: #303133;
+}
+
+.dialog-header__close-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 0;
+  background: transparent;
+  border: 0 none;
+  outline: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.dialog-confirm {
+  padding: 10px 20px 20px;
+}
+
+.dialog-confirm__message {
+  margin-bottom: 20px;
+  font-size: 18px;
+  text-align: left;
+}
+
+.dialog-confirm__footer {
+  width: 100%;
+  height: 32px;
+}
+
+.dialog-confirm__footer [class^=button__] {
+  float: right;
+  margin-left: 10px;
+}

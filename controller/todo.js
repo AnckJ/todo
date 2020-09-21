@@ -70,8 +70,7 @@ class TodoController {
   }
 
   async delete (ctx) {
-    const params = ctx.request.body
-    const { ids, id } = params
+    const { ids, id } = ctx.request.body
     if (!ids && !id) {
       throw new ApiError('missingId')
     }

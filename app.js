@@ -1,10 +1,11 @@
 import Koa from 'koa'
 import Router from 'koa-router'
 import cors from 'koa2-cors'
-import bodyParser from 'koa-bodyparser'
+// import bodyParser from 'koa-bodyparser'
 import error from 'koa-json-error'
 import parameter from 'koa-parameter'
 import koaStatic from 'koa-static'
+import koaBody from 'koa-body'
 import routes from './routes'
 
 const app = new Koa()
@@ -41,13 +42,22 @@ app.use(error({
   }
 }))
 
-app.use(bodyParser())
+// app.use(bodyParser())
 
 Object.keys(routes).forEach(key => {
   router.use('/api', routes[key].routes())
 })
 
 app.use(koaStatic('./html'))
+app.use(koaStatic('./public'))
+
+app.use(koaBody({
+  multipart: true,
+  parsedMethods: ['POST', 'PUT', 'PATCH', 'DELETE'],
+  formidable: {
+    maxFileSize: 2 * 1024 * 1024
+  }
+}))
 
 app.use(router.routes()).use(router.allowedMethods())
 

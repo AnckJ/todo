@@ -1,5 +1,6 @@
 import mongoose from 'mongoose'
 
+mongoose.set('useCreateIndex', true)
 mongoose.connect(
   'mongodb://127.0.0.1/tododemo',
   {
