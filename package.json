@@ -1,7 +1,7 @@
 {
-  "name": "fangdoubanapi",
+  "name": "todo",
   "version": "1.0.0",
-  "description": "",
+  "description": "koa2+mongodb+jwt。原生js实现用户登录注册，todo功能。包含分页，弹出框，确认框，上传等功能",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon ./index.js",

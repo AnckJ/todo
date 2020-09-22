@@ -69,9 +69,9 @@ define(function() {
       ${ pageCount > 1 ? lastPager : '' }
       ${ nextPager }
     `
-    if (!mount) {
-      return htmlString
+    if (mount) {
+      document.querySelector(mount).innerHTML = htmlString
     }
-    document.querySelector(mount).innerHTML = htmlString
+    return htmlString
   }
 })

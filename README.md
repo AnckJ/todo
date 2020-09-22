@@ -1,7 +1,8 @@
 # todo
 ## 描述
 
-koa2+mongodb
+koa2+mongodb+jwt。
+原生js实现用户登录注册，todo功能。包含分页，弹出框，确认框，上传等功能。
 
 koa2完成服务器，监听3000端口。
 
@@ -30,9 +31,11 @@ mongoose编写数据库，完成了用户集合和todo集合。
 
 	/list				   获取用户列表
 
-	/read				 获取当前用户信息
+	/read				   获取当前用户信息
 
-	/update			更新用户
+	/update			   更新用户
+
+	/uploadAvatar  上次头像
 
 /api/todo	todo集合
 
